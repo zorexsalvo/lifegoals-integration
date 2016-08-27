@@ -6,4 +6,3 @@ urlpatterns = [
     url(r'^accounts/$', views.WalletDetail.as_view(), name='wallet'),
     url(r'^transfers/$', views.FundTransfer.as_view(), name='fund_transfer')
 ]
-urlpatterns + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
