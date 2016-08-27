@@ -63,4 +63,4 @@ class FundTransfer(APIView):
                              })
             r = requests.post(url, data=body, headers=headers)
             return Response(r.json())
-        raise Http404body
+        raise Http404
