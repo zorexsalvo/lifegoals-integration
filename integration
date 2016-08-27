@@ -1,0 +1,28 @@
+#!/bin/bash
+
+build() {
+    docker build -t codeawesome/integration .
+}
+
+deploy() {
+    docker run -p 0.0.0.0.:8000:8000 --name integration -d codeawesome/integration
+}
+
+undeploy() {
+    docker stop integration
+    docker rm integration
+}
+
+case "$1" in
+    build)
+        build $2
+        ;;
+    deploy)
+        deploy $2
+        ;;
+    undeploy)
+        undeploy $2
+        ;;
+    *)
+        echo "integration build|deploy|undeploy"
+esac
