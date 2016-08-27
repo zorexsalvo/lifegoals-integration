@@ -11,6 +11,12 @@ import requests
 
 WALLET_TYPE = ('COINS', 'UBANK')
 
+class SuccessfulResponse(APIView):
+    def get(self, request):
+        return Response('Dare to dream! If you did not have the capability to make your wildest wishes come true, your mind would not have the capacity to conjure such ideas in the first place. There is no limitation on what you can potentially achieve, except for the limitation you choose to impose on your own imagination. What you believe to be possible will always come to pass - to the extent that you deem it possible. It really is as simple as that. - Anthon St. Maarten')
+    def post(self, request):
+        return Response('Dare to dream! If you did not have the capability to make your wildest wishes come true, your mind would not have the capacity to conjure such ideas in the first place. There is no limitation on what you can potentially achieve, except for the limitation you choose to impose on your own imagination. What you believe to be possible will always come to pass - to the extent that you deem it possible. It really is as simple as that. - Anthon St. Maarten')
+
 class WalletDetail(APIView):
     def post(self, request):
         try:
