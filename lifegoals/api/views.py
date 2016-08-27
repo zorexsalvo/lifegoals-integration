@@ -9,10 +9,15 @@ import logging
 import requests
 
 
+WALLET_TYPE = ('COINS', 'UBANK')
+
 class WalletDetail(APIView):
     def post(self, request):
         try:
             type = request.data['type']
+
+            if type not in WALLET_TYPE:
+                raise Http404
 
             if type == 'COINS':
                 access_token = request.data['access_token']
@@ -42,7 +47,7 @@ class WalletDetail(APIView):
                 account = {'account_no': account_no}
 
                 r = requests.get(url, params=account, headers=headers)
-                return Response(r.json())
+                return Response(r.json()[0])
 
             else:
                 raise Http404
@@ -66,6 +71,9 @@ class FundTransfer(APIView):
     def post(self, request):
         try:
             type = request.data['type']
+
+            if type not in WALLET_TYPE:
+                raise Http404
 
             if type == 'COINS':
                 access_token = request.data['access_token']
