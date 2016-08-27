@@ -8,4 +8,3 @@ class WalletSerializer(serializers.Serializer):
     balance = serializers.DecimalField(decimal_places=3, max_digits=9)
     id = serializers.CharField(max_length=200)
     pending_balance = serializers.DecimalField(decimal_places=3, max_digits=9)
-

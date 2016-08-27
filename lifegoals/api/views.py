@@ -28,7 +28,6 @@ class WalletDetail(APIView):
 
 
 class FundTransfer(APIView):
-
     def get_account(self, access_token):
         url = 'https://coins.ph/api/v3/crypto-accounts'
         headers = {'Authorization': 'Bearer {}'.format(access_token)}
@@ -57,11 +56,10 @@ class FundTransfer(APIView):
 
         if type == 'COINS':
             account = self.get_account(access_token)
-            logging.error(account)
             body = json.dumps({
-                                "account": account,
-                                "target_address": target_address,
-                                "amount": amount
+                                'account': account,
+                                'target_address': target_address,
+                                'amount': amount
                              })
             r = requests.post(url, data=body, headers=headers)
             return Response(r.json())
