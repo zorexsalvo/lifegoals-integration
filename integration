@@ -5,7 +5,7 @@ build() {
 }
 
 deploy() {
-    docker run -p 0.0.0.0.:8000:8000 --name integration -d codeawesome/integration
+    docker run -p 0.0.0.0:8000:8000 --name integration -d codeawesome/integration
 }
 
 undeploy() {
